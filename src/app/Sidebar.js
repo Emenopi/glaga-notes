@@ -1,12 +1,13 @@
 import Link from 'next/link'
 
-export default async function Sidebar() {
+export default async function Sidebar({topics}) {
    
     return (
-      <ul>
+      <ul className='p-20 text-black'>
         <li><Link href={'/'}>Home</Link></li>
-        <li>Topic 1</li>
-        <li>Topic 2</li>
+        {
+          topics.map((topic) => (<li key={`${topic}`}>{topic}</li>))
+        }
       </ul>
     )
   }
